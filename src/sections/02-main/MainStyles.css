@@ -1,0 +1,514 @@
+main {
+  display: flex;
+  padding: 0px 40px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 1080px;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  gap: 100px;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.landing-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.landing-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: 80px;
+}
+
+.landing-left,
+.landing-right {
+  will-change: transform;
+}
+
+.landing-left {
+  display: flex;
+  max-width: 425px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.landing-right {
+  display: flex;
+  position: relative;
+  width: 425px;
+  height: 374.5px;
+  overflow: visible;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.landing-right video {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  bottom: -45%;
+  left: -25%;
+}
+
+.current-projects-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  align-self: stretch;
+}
+
+.current-projects-header {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  align-self: stretch;
+  align-items: center;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  align-self: stretch;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  transition: all 200ms ease;
+}
+
+.tab:hover {
+  color: #000;
+  background: #f5f5f5;
+}
+
+.tab.active {
+  color: #000;
+  border-bottom-color: #000;
+  font-weight: 600;
+}
+
+.logo-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-header img {
+  max-width: 40px;
+  max-height: 40px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+}
+
+.project {
+  display: flex;
+  min-width: 200px;
+  background: #f5f5f5;
+  min-height: 400px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 100px 20px 50px 20px;
+  border: 0.5px solid rgb(193, 193, 193);
+  transition: transform 150ms ease-out;
+}
+
+.project:hover .project-content {
+  opacity: 100%;
+  transform: translateY(10px);
+}
+
+.learn-more {
+  display: none;
+}
+
+.project:hover .learn-more {
+  display: flex;
+}
+
+@keyframes loopTranslateAndOpacity {
+
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 50%;
+  }
+
+  50% {
+    transform: translateX(2px);
+    opacity: 100%;
+  }
+}
+
+.project:hover .project-links {
+  animation: loopTranslateAndOpacity 1s infinite;
+}
+
+.project:hover {
+  background: #e7e7e7;
+  transform: translateY(-4px);
+}
+
+.project-content {
+  opacity: 0%;
+  transition: transform 150ms ease-out, opacity 150ms ease-out;
+  transform: translateY(10px);
+}
+
+.project-top {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.project-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.join-us-button {
+  position: relative;
+  margin-top: 70px;
+}
+
+.spin {
+  transition: all 500ms ease-in-out;
+}
+
+.spin:hover {
+  transform: rotate(90deg);
+}
+
+.overlay a:hover {
+  text-decoration: underline;
+  opacity: 50%;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  /* Initial scale set to 0 for animation on load*/
+  z-index: 1000;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 300ms ease;
+  transition: height 1s ease;
+  width: 700px;
+}
+
+.fwd-address:hover {
+  opacity: 50%;
+}
+
+.scale-up {
+  transform: translate(-50%, -50%) scale(1);
+  /* Scale set to 1 on show */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.163);
+}
+
+#fwd-address {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Side Panel Styles */
+.panel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+
+.panel-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: -500px;
+  width: 500px;
+  height: 100vh;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  overflow-y: auto;
+  transition: right 300ms ease;
+}
+
+.side-panel.open {
+  right: 0;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 150ms ease;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+.panel-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.panel-logo {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.panel-logo img {
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: contain;
+}
+
+.panel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.panel-section h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.panel-section p {
+  margin: 0;
+  line-height: 1.6;
+  color: #666;
+}
+
+.funding-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.funding-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.funding-row .label {
+  font-weight: 500;
+  color: #666;
+}
+
+.funding-row .value {
+  font-weight: 600;
+  font-size: 18px;
+  color: #333;
+}
+
+.funding-row .value.collected {
+  color: #4caf50;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50 0%, #66bb6a 100%);
+  transition: width 500ms ease;
+  border-radius: 6px;
+}
+
+.price-info {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.price-info .price {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+
+.panel-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.collect-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.collect-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.external-link {
+  text-align: center;
+  padding: 12px;
+  color: #666;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 150ms ease;
+}
+
+.external-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 570px) {
+  .project-content {
+    opacity: 100%;
+  }
+
+  .learn-more {
+    display: flex;
+  }
+
+  .side-panel {
+    width: 100%;
+    right: -100%;
+  }
+
+  .panel-content {
+    padding: 20px;
+  }
+
+  .panel-header {
+    padding: 20px;
+  }
+}
